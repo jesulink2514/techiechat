@@ -2,9 +2,28 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Techiechat.App">
-	<Application.Resources>
+    <Application.Resources>
+        <ResourceDictionary>
 
-		<!-- Application resource dictionary -->
+            <Style TargetType="Page" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#2E2E2E"/>
+            </Style>
 
-	</Application.Resources>
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#561097"/>
+                <Setter Property="TextColor" Value="#2E2E2E"/>
+                <Setter Property="BackgroundColor" Value="#EBEBEB"/>
+            </Style>
+            
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="#5F15A3"/>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

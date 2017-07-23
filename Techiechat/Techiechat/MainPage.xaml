@@ -4,8 +4,21 @@
              xmlns:local="clr-namespace:Techiechat"
              x:Class="Techiechat.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout Padding="40">
+        <Image Source="somostechies.jpg" HeightRequest="150"
+               WidthRequest="150"/>
+        <Label Text="Techieschat" FontSize="Large"
+	           VerticalOptions="Center" TextColor="#5B03AD"
+	           HorizontalOptions="Center" 
+               FontAttributes="Bold"
+               Margin="0,0,0,40"/>
+        
+        <Label Text="Please login to start chatting. We'll need to access to your location."
+            TextColor="#3C3C3C"
+               HorizontalTextAlignment="Center"></Label>
+
+        <Button Text="Login" Style="{StaticResource PrimaryButton}"></Button>
+    
+    </StackLayout>
 
 </ContentPage>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Techiechat.CreateAccountPage">
+    <StackLayout Padding="40">
+        <Label Text="Create your Account" 
+               FontSize="Large" HorizontalTextAlignment="Center"
+               Margin="0,20"/>
+        <Entry x:Name="UserName" Placeholder="Enter your username"
+               Margin="0,15"/>
+        <Entry x:Name="Email" Placeholder="Enter your email" Keyboard="Email"
+               Margin="0,0,0,15"/>
+        <Label Text="Don't worry. We wont share your email or spam you." 
+               FontSize="Medium" HorizontalTextAlignment="Start"
+               Margin="0,20"/>
+        <Button Text="Start chatting" Style="{StaticResource PrimaryButton}" Clicked="StartChat"/>
+    </StackLayout>
+</ContentPage>
