@@ -24,6 +24,7 @@ namespace Techiechat.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();
+            TK.CustomMap.iOSUnified.TKCustomMapRenderer.InitMapRenderer();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
