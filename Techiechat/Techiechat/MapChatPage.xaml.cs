@@ -9,7 +9,6 @@ using Xamarin.Forms.Xaml;
 
 namespace Techiechat
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MapChatPage : ContentPage
     {
         public MapChatPage()
@@ -26,7 +25,7 @@ namespace Techiechat
             var point = new Position(position.Latitude, position.Longitude);
             var pin = new TKCustomMapPin()
             {
-                Image = ImageSource.FromUri(new Uri("http://www.gravatar.com/avatar/63359672e0ecb75e7ed261a358bf0478")),
+                Image = "http://www.gravatar.com/avatar/63359672e0ecb75e7ed261a358bf0478.jpg",
                 Title = "jesulink",
                 Subtitle = "jesus.angulo@outlook.com",
                 Position = point,

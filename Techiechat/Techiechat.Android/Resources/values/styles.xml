@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-
+  <style name="AppLoginTheme" parent="Theme.AccountKit">
+    <item name="com_accountkit_primary_color">@color/colorPrimary</item>
+    <item name="com_accountkit_primary_text_color">@color/colorText</item>
+    <item name="com_accountkit_secondary_text_color">@color/colorPrimary</item>
+    <item name="com_accountkit_status_bar_color">@color/colorPrimary</item>
+    <item name="com_accountkit_input_accent_color">@color/colorPrimary</item>
+    <item name="com_accountkit_input_border_color">@color/colorPrimary</item>
+  </style>
   <style name="MainTheme" parent="MainTheme.Base">
   </style>
   <!-- Base theme applied no matter what API -->

@@ -17,7 +17,7 @@
             TextColor="#3C3C3C"
                HorizontalTextAlignment="Center"></Label>
 
-        <Button Text="Login" Style="{StaticResource PrimaryButton}"></Button>
+        <Button Text="Login" Style="{StaticResource PrimaryButton}" Clicked="Button_OnClicked"></Button>
     
     </StackLayout>
 

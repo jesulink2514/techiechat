@@ -1,9 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="somostechies.chat" android:versionCode="1" android:versionName="0.1.0">
 	<uses-sdk android:minSdkVersion="15" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<application android:label="Techiechat.Android"></application>
-  <meta-data android:name="com.google.android.maps.v2.API_KEY"
-             android:value="AIzaSyCeSG1IBvdt8WWZ4wpZvA0o5almQFj7Jfg" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.READ_SMS" />
+	<application android:label="Techiechat.Android" android:icon="@drawable/icon">
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCeSG1IBvdt8WWZ4wpZvA0o5almQFj7Jfg" />
+		<meta-data android:name="com.facebook.accountkit.ApplicationName" android:value="@string/app_name" />
+		<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/FACEBOOK_APP_ID" />
+		<meta-data android:name="com.facebook.accountkit.ClientToken" android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
+		<activity android:name="com.facebook.accountkit.ui.AccountKitActivity" android:theme="@style/AppLoginTheme" />
+	</application>
 </manifest>

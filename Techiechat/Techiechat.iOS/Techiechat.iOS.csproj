@@ -88,6 +88,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AccountKitManager.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="app.config" />
@@ -128,6 +129,21 @@
     </Reference>
     <Reference Include="BTProgressHUD, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\BTProgressHUD.1.2.0.5\lib\Xamarin.iOS10\BTProgressHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="Com.OneSignal, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Com.OneSignal.3.0.1\lib\Xamarin.iOS10\Com.OneSignal.dll</HintPath>
+    </Reference>
+    <Reference Include="Com.OneSignal.Abstractions, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Com.OneSignal.3.0.1\lib\Xamarin.iOS10\Com.OneSignal.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="DLToolkit.Forms.Controls.FlowListView, Version=1.0.6237.31064, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DLToolkit.Forms.Controls.FlowListView.2.0.4\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\DLToolkit.Forms.Controls.FlowListView.dll</HintPath>
+    </Reference>
+    <Reference Include="Naxam.AccountKit.iOS, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Naxam.AccountKit.iOS.1.1\lib\Xamarin.iOS10\Naxam.AccountKit.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="OneSignal.iOS.Binding, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Com.OneSignal.3.0.1\lib\Xamarin.iOS10\OneSignal.iOS.Binding.dll</HintPath>
     </Reference>
     <Reference Include="PCLCrypto, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d4421c8a4786956c, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PCLCrypto.2.0.147\lib\xamarinios10\PCLCrypto.dll</HintPath>
@@ -206,6 +222,33 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\somostechies.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AgentSmith.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\CristianoRonaldo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FashionTrend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\KylieJenner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Messi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Morpheus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Neo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ThePope.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Waitress.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

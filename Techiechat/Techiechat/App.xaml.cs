@@ -13,7 +13,7 @@ namespace Techiechat
         {
             InitializeComponent();
 
-            MainPage = new Techiechat.MapChatPage();
+            MainPage = new NavigationPage(new Techiechat.MainPage());
         }
 
         protected override void OnStart()
