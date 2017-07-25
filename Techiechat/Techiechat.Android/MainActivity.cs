@@ -3,8 +3,6 @@ using Android.Content.PM;
 using Android.OS;
 using DLToolkit.Forms.Controls;
 using Plugin.Permissions;
-using Techiechat.Helpers.AccountKit;
-using Xamarin.Forms;
 
 namespace Techiechat.Droid
 {
@@ -16,9 +14,7 @@ namespace Techiechat.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
-            DependencyService.Register<IAccountManager,AccountKitManager>();
-
+            
             base.OnCreate(bundle);
             Acr.UserDialogs.UserDialogs.Init(this);
             global::Xamarin.Forms.Forms.Init(this, bundle);

@@ -26,8 +26,6 @@ namespace Techiechat.iOS
             TK.CustomMap.iOSUnified.TKCustomMapRenderer.InitMapRenderer();
             FlowListView.Init();
 
-            DependencyService.Register<IAccountManager,AccountKitManager>();
-
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

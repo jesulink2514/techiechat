@@ -41,9 +41,7 @@
     <Compile Include="CreateAccountPage.xaml.cs">
       <DependentUpon>CreateAccountPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\AccountKit\AccountManager.cs" />
     <Compile Include="Helpers\Icons.cs" />
-    <Compile Include="Helpers\MD5.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
