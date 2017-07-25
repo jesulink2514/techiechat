@@ -3,12 +3,15 @@ using Android.Content.PM;
 using Android.OS;
 using DLToolkit.Forms.Controls;
 using Plugin.Permissions;
+using Techiechat.Data;
+using Techiechat.Helpers;
+using Xamarin.Forms;
 
 namespace Techiechat.Droid
 {
     [Activity(Label = "Techiechat", Icon = "@drawable/icon", Theme = "@style/MainTheme", 
         MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -17,9 +20,12 @@ namespace Techiechat.Droid
             
             base.OnCreate(bundle);
             Acr.UserDialogs.UserDialogs.Init(this);
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            Forms.Init(this, bundle);
             Xamarin.FormsMaps.Init(this, bundle);
             FlowListView.Init();
+
+            DependencyService.Register<ITechiechatService,TechiechatService>();
+
             LoadApplication(new App());
         }
 

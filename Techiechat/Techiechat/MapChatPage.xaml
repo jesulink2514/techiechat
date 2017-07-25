@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-             xmlns:customMap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
-             x:Class="Techiechat.MapChatPage">
+             xmlns:helpers="clr-namespace:Techiechat.Helpers;assembly=Techiechat"
+             x:Class="Techiechat.MapChatPage"
+             Title="Techiechat">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <customMap:TKCustomMap x:Name="Map" HasZoomEnabled="True" CustomPins="{Binding Users}" Grid.Row="1"/>
+        <helpers:LocalMap x:Name="MapControl" HasZoomEnabled="True" CustomPins="{Binding Users}" Grid.Row="1"/>
         <Entry x:Name="Chat" Placeholder="Start chatting..." Completed="SendMessage" Grid.Row="0"/>
     </Grid>
 </ContentPage>

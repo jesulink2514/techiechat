@@ -6,13 +6,17 @@
 	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-	<uses-permission android:name="android.permission.READ_SMS" />
-	<application android:label="Techiechat.Android" android:icon="@drawable/icon">
+	<application android:label="Techiechat" android:icon="@drawable/icon">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCeSG1IBvdt8WWZ4wpZvA0o5almQFj7Jfg" />
-		<meta-data android:name="com.facebook.accountkit.ApplicationName" android:value="@string/app_name" />
-		<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/FACEBOOK_APP_ID" />
-		<meta-data android:name="com.facebook.accountkit.ClientToken" android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
-		<activity android:name="com.facebook.accountkit.ui.AccountKitActivity" android:theme="@style/AppLoginTheme" />
-	</application>
+	  <permission android:name="somostechies.chat.permission.C2D_MESSAGE"
+	              android:protectionLevel="signature" />
+	  <uses-permission android:name="somostechies.chat.permission.C2D_MESSAGE" />
+	  <receiver android:name="com.onesignal.GcmBroadcastReceiver"
+	            android:permission="com.google.android.c2dm.permission.SEND" >
+	    <intent-filter>
+	      <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+	      <category android:name="somostechies.chat" />
+	    </intent-filter>
+	  </receiver>
+  </application>
 </manifest>

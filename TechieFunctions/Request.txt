@@ -1,0 +1,13 @@
+POST https://onesignal.com/api/v1/notifications
+Authorization Basic ZjYyZTkxMDQtMjE3My00MWVjLWFlODAtNGRmNGM2MmU3Yzhj
+{
+ "app_id" :"c5f9d14d-2cf2-4436-9df2-df379572a6cb",
+ "contents":{"en" : "user.Email"},
+ "headings":{ "en" : "user.Username"},
+ "include_player_ids":["fea38222-bd52-402c-a75e-17675e9ddb1c"],
+ "small_icon": "agentsmith",
+ "large_icon":"agentsmith",
+ "data": {"techie":"{\"id\": \"fea38222-bd52-402c-a75e-17675e9ddb1c\",\"Username\": \"jesus\",\"Email\": \"It really works 2\",\"ProfileIcon\": \"FashionTrend.png\",\"LastLocation\": {\"type\": \"Point\",\"coordinates\": [-12.0691911,-77.0037536]}}"
+ }
+}
+

@@ -9,7 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techiechat", "Techiechat\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Techiechat.iOS", "Techiechat\Techiechat.iOS\Techiechat.iOS.csproj", "{F6447FE6-2457-4C00-BF54-57032A9D7177}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Techiechat.Data", "Techiechat.Data\Techiechat.Data.shproj", "{86000762-892A-4C0F-8E6C-69F56830B362}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Techiechat.Data\Techiechat.Data.projitems*{7634b593-112e-4d83-9e4f-9d1893574a16}*SharedItemsImports = 4
+		Techiechat.Data\Techiechat.Data.projitems*{86000762-892a-4c0f-8e6c-69f56830b362}*SharedItemsImports = 13
+		Techiechat.Data\Techiechat.Data.projitems*{f6447fe6-2457-4c00-bf54-57032a9d7177}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|iPhone = Ad-Hoc|iPhone

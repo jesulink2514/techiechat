@@ -1,6 +1,7 @@
 ﻿using DLToolkit.Forms.Controls;
 using Foundation;
-using Techiechat.Helpers.AccountKit;
+using Techiechat.Data;
+using Techiechat.Helpers;
 using UIKit;
 using Xamarin.Forms;
 
@@ -25,6 +26,8 @@ namespace Techiechat.iOS
             Xamarin.FormsMaps.Init();
             TK.CustomMap.iOSUnified.TKCustomMapRenderer.InitMapRenderer();
             FlowListView.Init();
+            
+            DependencyService.Register<ITechiechatService, TechiechatService>();
 
             LoadApplication(new App());
 
