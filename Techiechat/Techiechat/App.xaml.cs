@@ -13,6 +13,7 @@ namespace Techiechat
 {
     public partial class App : Application
     {
+        public static Techie User { get; set; }
         public static ITechiechatService TechiechatService { get; private set; }
         public App()
         {
@@ -24,6 +25,15 @@ namespace Techiechat
             if (account != null)
             {
                 MainPage = new NavigationPage(new MapChatPage());
+
+                User = new Techie()
+                {
+                    Id = account.Properties["Id"],
+                    Username = account.Username,
+                    Email = account.Properties["Email"],
+                    ProfileIcon = account.Properties["ProfileIcon"]
+                };
+
                 return;
             }
             MainPage = new NavigationPage(new Techiechat.MainPage());

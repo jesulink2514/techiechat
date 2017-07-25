@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Views;
 using DLToolkit.Forms.Controls;
 using Plugin.Permissions;
 using Techiechat.Data;
@@ -9,7 +10,7 @@ using Xamarin.Forms;
 
 namespace Techiechat.Droid
 {
-    [Activity(Label = "Techiechat", Icon = "@drawable/icon", Theme = "@style/MainTheme", 
+    [Activity(Label = "Techiechat", Icon = "@drawable/icon", Theme = "@style/splashscreen", 
         MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -17,6 +18,9 @@ namespace Techiechat.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+
+            base.Window.RequestFeature(WindowFeatures.ActionBar);
+            base.SetTheme(Resource.Style.MainTheme);
             
             base.OnCreate(bundle);
             Acr.UserDialogs.UserDialogs.Init(this);

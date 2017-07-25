@@ -4,7 +4,7 @@
              xmlns:helpers="clr-namespace:Techiechat.Helpers;assembly=Techiechat"
              x:Class="Techiechat.MapChatPage"
              Title="Techiechat">
-    <Grid>
+    <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>

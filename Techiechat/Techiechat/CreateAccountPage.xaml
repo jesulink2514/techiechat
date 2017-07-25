@@ -7,7 +7,7 @@
     <StackLayout Padding="40,20">
         <Entry x:Name="UserName" Placeholder="Enter your username"
                Margin="0,15"/>
-        <Entry x:Name="Email" Placeholder="Enter your email" Keyboard="Email"
+        <Entry x:Name="Email" Placeholder="Initial message" Keyboard="Text"
                Margin="0,0,0,15"/>
         <Label Text="Don't worry. We wont share your email or spam you." 
                FontSize="Medium" HorizontalTextAlignment="Start"

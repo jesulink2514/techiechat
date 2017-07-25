@@ -36,11 +36,8 @@ namespace Techiechat.Data
                     .Where(x => x.Id == user.Id || x.Username == user.Username)
                     .ToList().Any();
 
-                if (exists) return false;
-
-                //add
-                await _client.CreateDocumentAsync(coll, user);
-
+                await _client.UpsertDocumentAsync(coll, user);
+                                
                 return true;
             }
             catch (Exception e)

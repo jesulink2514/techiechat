@@ -53,11 +53,12 @@ namespace Techiechat
                 account.Properties.Add("Email", techie.Email);
                 account.Properties.Add("ProfileIcon", techie.ProfileIcon);
 
-                await AccountStore.Create().SaveAsync(account, "techiechat");
-                Acr.UserDialogs.UserDialogs.Instance.ShowSuccess("Registration was successful");
+                App.User = techie;
+
+                await AccountStore.Create().SaveAsync(account, "techiechat");                
             }
 
-            await Navigation.PushAsync(new MapChatPage());
+            await Navigation.PushAsync(new MapChatPage());            
         }
 
         public string[] ProfileIcons { get; private set; } = Icons.Profiles;

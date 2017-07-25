@@ -26,10 +26,16 @@ namespace TechiesServer
 
             var raw = await req.Content.ReadAsStringAsync();
 
-            log.Info("Raw:" + raw);
+            log.Info("RAW message" + raw);
 
             var techie = JsonConvert.DeserializeObject<Techie>(raw);
             var point = techie.LastLocation;
+
+            var techieDB = client.CreateDocumentQuery<Techie>(collection,$"SELECT * FROM c WHERE c.id = \"{techie.Id}\"")                
+                .ToList().FirstOrDefault();
+
+            if (techieDB == null) return req.CreateResponse(HttpStatusCode.BadRequest);
+            techieDB.LastLocation = point;
 
             var queryText = $"SELECT * FROM c WHERE ST_DISTANCE(c.LastLocation, {{\"type\":\"Point\",\"coordinates\":[{point.Coordinates[0]},{point.Coordinates[1]}]}}) < 5 * 1000";
 
@@ -38,20 +44,18 @@ namespace TechiesServer
 
             log.Info("Ids:" + users.Length);
 
-            var pushresult = await PushNotification(users,techie,log);
+            await Task.WhenAll(
+                client.UpsertDocumentAsync(collection, techieDB),
+                PushNotification(users,techie,log));            
 
-            log.Info(pushresult.ToString());
-
-            var response = req.CreateResponse(HttpStatusCode.OK, "Success");
-
-            return response;
+            return req.CreateResponse(HttpStatusCode.OK, "Success");            
         }
 
         private static async Task<HttpResponseMessage> PushNotification(string[] players, Techie user, TraceWriter log)
         {
             var httpClient = new HttpClient();
 
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", "ZjYyZTkxMDQtMjE3My00MWVjLWFlODAtNGRmNGM2MmU3Yzhj");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic","ZjYyZTkxMDQtMjE3My00MWVjLWFlODAtNGRmNGM2MmU3Yzhj");
 
             var andIcon = user.ProfileIcon.Replace(".png", string.Empty).ToLowerInvariant();
 
