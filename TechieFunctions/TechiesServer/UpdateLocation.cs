@@ -1,18 +1,18 @@
-using System.Collections.Generic;
-using System.Linq;
+using System;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
-using Microsoft.Azure.Documents.Client;
-using System;
 using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.Documents.Client;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Collections.Generic;
+using System.Text;
+using System.Linq;
 
-namespace TechieFunctions
+namespace TechiesServer
 {
     public static class UpdateLocation
     {
@@ -20,33 +20,40 @@ namespace TechieFunctions
 
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "post")]HttpRequestMessage req, TraceWriter log)
         {
-            var client = new DocumentClient(new Uri("https://techies.documents.azure.com:443/"),"ptLkI7Ub5RH4UIuYWHsnher1QtCoemkMK1hZlH3cpLD4kBQCSg16R8SxO48e0ljjn3B4eBpdLU8XZw3oUJh6Dw==");
+            var client = new DocumentClient(new Uri("https://techies.documents.azure.com:443/"), "ptLkI7Ub5RH4UIuYWHsnher1QtCoemkMK1hZlH3cpLD4kBQCSg16R8SxO48e0ljjn3B4eBpdLU8XZw3oUJh6Dw==");
 
             var collection = UriFactory.CreateDocumentCollectionUri("techieschat", "users");
 
             var raw = await req.Content.ReadAsStringAsync();
+
+            log.Info("Raw:" + raw);
+
             var techie = JsonConvert.DeserializeObject<Techie>(raw);
             var point = techie.LastLocation;
 
             var queryText = $"SELECT * FROM c WHERE ST_DISTANCE(c.LastLocation, {{\"type\":\"Point\",\"coordinates\":[{point.Coordinates[0]},{point.Coordinates[1]}]}}) < 5 * 1000";
 
-            var users = client.CreateDocumentQuery<string>(collection,queryText,new FeedOptions() { MaxItemCount = 2000 }).ToList();
+            var users = client.CreateDocumentQuery<Techie>(collection, queryText, new FeedOptions() { MaxItemCount = 2000 }).ToList()
+                .Select(x=>x.Id).ToArray();
 
-            var pushresult = await PushNotification(users.ToArray(), new Techie());
+            log.Info("Ids:" + users.Length);
 
-            log.Info(pushresult.ToString());                        
-                        
+            var pushresult = await PushNotification(users,techie,log);
+
+            log.Info(pushresult.ToString());
+
             var response = req.CreateResponse(HttpStatusCode.OK, "Success");
 
             return response;
         }
 
-        private static async Task<HttpResponseMessage> PushNotification(string[] players, Techie user)
+        private static async Task<HttpResponseMessage> PushNotification(string[] players, Techie user, TraceWriter log)
         {
             var httpClient = new HttpClient();
 
-            httpClient.DefaultRequestHeaders.Authorization =
-                new AuthenticationHeaderValue("Basic", "ZjYyZTkxMDQtMjE3My00MWVjLWFlODAtNGRmNGM2MmU3Yzhj");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", "ZjYyZTkxMDQtMjE3My00MWVjLWFlODAtNGRmNGM2MmU3Yzhj");
+
+            var andIcon = user.ProfileIcon.Replace(".png", string.Empty).ToLowerInvariant();
 
             var not = new NotificationRequest()
             {
@@ -54,13 +61,16 @@ namespace TechieFunctions
                 contents = new Contents() { en = user.Email },
                 headings = new Contents() { en = user.Username },
                 include_player_ids = players,
-                small_icon = user.ProfileIcon,
-                data = new Dictionary<string, object>()
+                small_icon = andIcon,
+                large_icon = andIcon,
+                data = new Dictionary<string,string>()
                 {
                     {"techie",JsonConvert.SerializeObject(user)}
                 }
             };
             var payload = JsonConvert.SerializeObject(not);
+
+            log.Info("OneSignal Payload:" + payload);
 
             var resp = await httpClient.PostAsync("https://onesignal.com/api/v1/notifications",
                 new StringContent(payload, Encoding.UTF8, "application/json"));
@@ -73,7 +83,8 @@ namespace TechieFunctions
     {
         public string app_id { get; set; }
         public string small_icon { get; set; }
-        public IDictionary<string, object> data { get; set; }
+        public string large_icon { get; set; }
+        public IDictionary<string, string> data { get; set; }
         public Contents contents { get; set; }
         public Contents headings { get; set; }
         public string[] include_player_ids { get; set; }

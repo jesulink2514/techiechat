@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26720.2
+VisualStudioVersion = 15.0.26711.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechieFunctions", "TechieFunctions\TechieFunctions.csproj", "{D6CAADB7-66B3-4B10-A9BF-AD9AD7EAA917}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechiesServer", "TechiesServer\TechiesServer.csproj", "{C9C00271-6769-43CF-BCD2-0A44C82921A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D6CAADB7-66B3-4B10-A9BF-AD9AD7EAA917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6CAADB7-66B3-4B10-A9BF-AD9AD7EAA917}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6CAADB7-66B3-4B10-A9BF-AD9AD7EAA917}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6CAADB7-66B3-4B10-A9BF-AD9AD7EAA917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C00271-6769-43CF-BCD2-0A44C82921A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C00271-6769-43CF-BCD2-0A44C82921A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C00271-6769-43CF-BCD2-0A44C82921A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C00271-6769-43CF-BCD2-0A44C82921A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
