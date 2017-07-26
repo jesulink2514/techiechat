@@ -5,6 +5,7 @@ using System.Text;
 using Com.OneSignal;
 using Com.OneSignal.Abstractions;
 using Newtonsoft.Json;
+using Plugin.Geolocator;
 using Techiechat.Helpers;
 using Xamarin.Auth;
 using Xamarin.Forms;
@@ -34,6 +35,8 @@ namespace Techiechat
                     ProfileIcon = account.Properties["ProfileIcon"]
                 };
 
+                
+
                 return;
             }
             MainPage = new NavigationPage(new Techiechat.MainPage());
@@ -44,16 +47,11 @@ namespace Techiechat
             // Handle when your app starts
             await TechiechatService.InitAsync();
 
-            OneSignal.Current.StartInit("c5f9d14d-2cf2-4436-9df2-df379572a6cb")
+            OneSignal.Current.StartInit("ONESIGNAL APP ID HERE")
                 .HandleNotificationOpened(OnNotificationOpened)
                 .HandleNotificationReceived(OnNotificationReceived)
                 .InFocusDisplaying(OSInFocusDisplayOption.None)
                 .EndInit();
-
-            //var account = new Account(UserName.Text);
-            //account.Properties.Add("Id", techie.Id);
-            //account.Properties.Add("Email", techie.Email);
-            //account.Properties.Add("ProfileIcon", techie.ProfileIcon);
         }
 
         private void OnNotificationReceived(OSNotification notification)
