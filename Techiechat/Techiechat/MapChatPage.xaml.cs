@@ -37,6 +37,17 @@ namespace Techiechat
 
                     var p = techie.LastLocation;
                     var t = Users.FirstOrDefault(x => x.ID == techie.Id);
+
+                    if (t == null)
+                    {
+                        t = new TKCustomMapPin()
+                        {
+                            ID = techie.Id,Image = techie.ProfileIcon,
+                            Title = techie.Username
+                        };
+                        Users.Add(t);
+                    }
+
                     t.Position = new Position(p.Coordinates[0],p.Coordinates[1]);
                     t.Subtitle = techie.Email;
                     
