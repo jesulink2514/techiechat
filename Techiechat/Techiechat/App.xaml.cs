@@ -9,6 +9,7 @@ using Plugin.Geolocator;
 using Techiechat.Helpers;
 using Xamarin.Auth;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Techiechat
 {
@@ -47,10 +48,9 @@ namespace Techiechat
             // Handle when your app starts
             await TechiechatService.InitAsync();
 
-            OneSignal.Current.StartInit("ONESIGNAL APP ID HERE")
+            OneSignal.Current.StartInit("c5f9d14d-2cf2-4436-9df2-df379572a6cb")
                 .HandleNotificationOpened(OnNotificationOpened)
-                .HandleNotificationReceived(OnNotificationReceived)
-                .InFocusDisplaying(OSInFocusDisplayOption.None)
+                .HandleNotificationReceived(OnNotificationReceived)                
                 .EndInit();
         }
 

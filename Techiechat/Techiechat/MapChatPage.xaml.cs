@@ -12,6 +12,7 @@ using Techiechat.Helpers;
 using TK.CustomMap;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
+using Xamarin.Forms.Xaml;
 using Point = Techiechat.Helpers.Point;
 
 namespace Techiechat
@@ -122,7 +123,8 @@ namespace Techiechat
 
             var raw = JsonConvert.SerializeObject(request);
 
-            await _httpClient.PostAsync("https://techiechat.azurewebsites.net/api/UpdateLocation?code=vRnvGMQUES8p7D/exn0sRG3IexwJGaFM5VCweBGiIHWj4xAMKFGR4A==",new StringContent(raw, Encoding.UTF8, "application/json"));
+            await _httpClient.PostAsync("https://techiesapi.azurewebsites.net/api/sendMessage?code=g4aFyIeiqItA8FsIUhBa89fFlSrzeaXW0MLhVafbmyM9wQdW2NwUtA==", 
+                new StringContent(raw, Encoding.UTF8, "application/json"));
         }
         private static readonly object Lock = new object();
 
