@@ -20,7 +20,7 @@ namespace TechiesServer
 
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "post")]HttpRequestMessage req, TraceWriter log)
         {
-            var client = new DocumentClient(new Uri("https://techies.documents.azure.com:443/"), "ptLkI7Ub5RH4UIuYWHsnher1QtCoemkMK1hZlH3cpLD4kBQCSg16R8SxO48e0ljjn3B4eBpdLU8XZw3oUJh6Dw==");
+            var client = new DocumentClient(new Uri("https://{accountname}.documents.azure.com:443/"), "");
 
             var collection = UriFactory.CreateDocumentCollectionUri("techieschat", "users");
 
@@ -55,13 +55,13 @@ namespace TechiesServer
         {
             var httpClient = new HttpClient();
 
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic","ZjYyZTkxMDQtMjE3My00MWVjLWFlODAtNGRmNGM2MmU3Yzhj");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic","ONE_SIGNAL_API_KEY");
 
             var andIcon = user.ProfileIcon.Replace(".png", string.Empty).ToLowerInvariant();
 
             var not = new NotificationRequest()
             {
-                app_id = "c5f9d14d-2cf2-4436-9df2-df379572a6cb",
+                app_id = "ONE SIGNAL APP ID",
                 contents = new Contents() { en = user.Email },
                 headings = new Contents() { en = user.Username },
                 include_player_ids = players,

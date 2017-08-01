@@ -48,7 +48,7 @@ namespace Techiechat
             // Handle when your app starts
             await TechiechatService.InitAsync();
 
-            OneSignal.Current.StartInit("c5f9d14d-2cf2-4436-9df2-df379572a6cb")
+            OneSignal.Current.StartInit("ONE SIGNAL APP ID")
                 .HandleNotificationOpened(OnNotificationOpened)
                 .HandleNotificationReceived(OnNotificationReceived)                
                 .EndInit();

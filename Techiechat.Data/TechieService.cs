@@ -15,8 +15,8 @@ namespace Techiechat.Data
     {
         private const string Database = "techieschat";
         private const string Collection = "users";
-        private readonly DocumentClient _client = new DocumentClient(new Uri("https://techies.documents.azure.com:443/"),
-            "vkqLKVuHW4Lg9gjdDznwJitn3NQc9EChIb6xOULGtCuCEQJHf3WP6kiA25ViTJZz5wp2KNBr6tkoPHL4m35MlQ==");
+        private readonly DocumentClient _client = new DocumentClient(new Uri("https://{account}.documents.azure.com:443/"),
+            "KEY HERE");
 
         public async Task InitAsync()
         {
