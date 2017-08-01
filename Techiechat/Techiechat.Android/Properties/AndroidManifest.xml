@@ -7,7 +7,7 @@
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<application android:label="Techiechat" android:icon="@drawable/icon">
-		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="KEY-HERE" />
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyA8-rW0BeuvmVnSxbZp5QvUGWV6_zYGuuY" />
 	  <permission android:name="somostechies.chat.permission.C2D_MESSAGE"
 	              android:protectionLevel="signature" />
 	  <uses-permission android:name="somostechies.chat.permission.C2D_MESSAGE" />

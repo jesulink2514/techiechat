@@ -23,9 +23,7 @@ namespace Techiechat
         private async void StartChat(object sender, EventArgs e)
         {
             using (UserDialogs.Instance.Loading("Registering your account..."))
-            {
-                OneSignal.Current.RegisterForPushNotifications();
-
+            {                                
                 var id = await GetPushId();
 
                 var location = await CrossGeolocator.Current.GetPositionAsync(TimeSpan.FromSeconds(5));
